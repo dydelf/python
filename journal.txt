@@ -1,0 +1,37 @@
+# This is a simple journal to record my journey through programming #
+
+Beginning
+Its hard to sum it up but I am around 1-2 weeks inside the programming journey
+now. I completed some chapters from python crash course which gave me a really
+basic view over programming. I am working on linux machine and slowly learning
+everything I need to know to be more proficient.
+
+02.03.19
+I learned how to make functions in python. I also wrote some programs for euler
+and hackerrank. This showed me the complexity of programming and how it can
+beautifully fit together. There is a lot to learn still. I also started
+configuring git and now I am able to save all changes on github.
+
+03.03.19
+I learned a lot about terminal this day and also decided to move mostly to
+terminal operations. This should profit in the future as I am more able to move
+through console. I changed my text editor to vim and started configuring it.
+
+04.03.19
+Finished learning functions chapter from python crash course. Also finished
+configuring vim program to suit my personal needs. That was an intensive day
+but now I am able to use vim quite comfortably. Still not sure if its worth it.
+
+05.03.19
+Added some functionality to vim program. Finished chapters on functions and
+started learning python classes. Now it kind of makes more sense how can you
+write such a complicated big programs. Solved some math problems in the phone
+but without compiling.
+
+06.03.19
+Started to compile noted programs. So many bugs XD its better to write them
+straight in a text editor, in the morning i had troubles recalling what was it
+all about. I am at the beginning after all. After spending few hours I managed
+to make both of them work. Optimalisation is shit, my computer can barely
+calculate all the operations. Not because of the power but because of the
+shitty beginner code.

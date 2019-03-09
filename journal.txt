@@ -35,3 +35,18 @@ all about. I am at the beginning after all. After spending few hours I managed
 to make both of them work. Optimalisation is shit, my computer can barely
 calculate all the operations. Not because of the power but because of the
 shitty beginner code.
+
+07.03.19
+Finished classes chapter. Started doing another ones. Upgraded program for
+euler but its still not enough, program is formated too slow and finding
+dividers of a large number takes too long. Maybe reversed logic as with prime
+numbers could be useful here. I also started working with a files inside a program today.
+
+08.03.19
+Finished chapter about the files and exceptions. Now I know how to read, write
+and append a file. Not much practice with that though. I started watching a
+video course to review all the knowledge that I gained. I slowly started to
+look for another things to learn.
+
+09.03.19
+

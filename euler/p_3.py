@@ -3,23 +3,28 @@ Euler problem 3
 Finding the largest prime factor of a given number
 """
 
-def get_primals(number):
-    """ Getting the prime factors of given number """
-    """  [i for i in number % == 0] """
+def get_dividers(number):
+    """ Getting the dividers of a given number """
     dividers = []
     for i in range(1, number+1):
         if(number % i == 0):
             dividers.append(i)
+    return dividers
+
+def get_primals(numbers):
+    """ taking primes from the given list """
     primals = []
-    for divider in dividers:
+    for number in numbers:
         isPrime = True
-        for num in range(2, divider):
-            if divider % num == 0:
+        for num in range(2, int(number ** 0.5) + 1):
+            if number % num == 0:
                 isPrime = False
+                break
         if isPrime:
-            primals.append(divider)
+            primals.append(number)
     return primals
 
-print("primals of the number 600851475143 are: " +
-      str(get_primals(600851475143)))
-print(max(get_primals(600851475143)))
+
+dividers = [get_dividers(600851475143)]
+print(get_dividers(600851475143))
+

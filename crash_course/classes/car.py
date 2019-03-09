@@ -21,8 +21,9 @@ class Car():
 
     def read_odometer(self):
         """ reading and printing odometer """
-        print("This car's mileage is: " +
-              str(self.odometer_reading) + " miles")
+        msg = "This car's mileage is: "
+        msg += str(self.odometer_reading) + " miles"
+        return msg
 
     def update_odometer(self, mileage):
         """ update odometer reading,
@@ -32,6 +33,7 @@ class Car():
             self.odometer_reading = mileage
         else:
             print("you can't turn back the odometer!")
+        return
 
     def increment_odometer(self, miles):
         """ add additional miles to the odometer """
@@ -39,8 +41,9 @@ class Car():
             self.odometer_reading += miles
         else:
             print("Incorrect value!")
+        return
 
-
+"""
 # getting basic information about the car
 my_new_car = Car('audi', 'a3', '1992')
 print(my_new_car.get_descriptive_name())
@@ -59,3 +62,4 @@ print(my_new_car.read_odometer())
 
 my_new_car.increment_odometer(-10)
 print(my_new_car.read_odometer())
+"""

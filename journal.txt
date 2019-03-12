@@ -49,4 +49,17 @@ video course to review all the knowledge that I gained. I slowly started to
 look for another things to learn.
 
 09.03.19
+Finished watching a video course. It was very basic but gave me a review of the
+material that I learned. Some problems with a computer started after installing
+YouCompleteMe plugin into the vim editor. Now maybe I have better funcionality
+but im not so sure that my computer is doing good. I think I need to set up a
+new device as soon as possible.
+
+11.02.19
+Downloaded a lot of materials about different topics. I started researching
+into my topic about the data science. It seems hard because a lot of math is
+involved but slowly it will be clearer. I just need to finish the book first
+and complete some other projects. Data science seems big. 
+
+12.03.19
 

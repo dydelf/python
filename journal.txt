@@ -62,4 +62,75 @@ involved but slowly it will be clearer. I just need to finish the book first
 and complete some other projects. Data science seems big. 
 
 12.03.19
+My linux got destroyed, I needed to reinstall my system. it was a pity but
+fortunately I found why it was lagging so much, the problem was not vim as I
+thought but faulty font that I installed, it was slowing down the whole system
+by loading. Now its over and I can come back to work.
 
+13.03.19
+I'm getting back to python. I research some libraries, tried to use NumPy and
+did a lot of research about data and APIs. Also learned chapter about code
+testing. After this one everything gets clearer and clearer, now I no what is
+TDD and how to program in a more efficient way. The thing that I need now is
+simply exercise and practise.
+
+14.03.19
+I am doing data visualisation project now. I started doing plots with
+matplotlib, had some problems with that but after configuration it is working
+well. Good. Lazier day than usual in case of programming, I was reading a lot
+of stuff about linux distros, data science and overall information.
+
+15.03.19
+Continue to learn about plotting. Next chapters from the book. I did some stuff
+in matplotlib, random generation for example. I like this data science. This is
+a topic I am interested in although I must say that it is hard. This is quite
+hard topic and I must still learn a lot to do some project and be really
+proficient. Another thing that I noticed is that I am becoming less and less
+interested in programming, its a natural thing for me, explosion of interest
+and sudden drop. i must survive this wave. Maybe its simply because everything
+is harder now, there is no simple structure. Maybe it's just because I have
+harder days and I lost grip over my actions a little bit. I am not so sharp
+anymore. I think part of it is because I am here and programming is my only
+true activity, it can also be because I am with someone in the room, I would
+like to see how it will go in france, good or not. This is the thing for the
+future. 
+
+16.03.19
+I finished learning matplotlib this day. At least I know some basic options
+now. I can plt and change the graph, how it looks. This is definately a good
+skill to have. It will be useful with my project. Whenever I will start it. I
+have to start before I leave from here. At least start it.
+
+17.03.19
+I did some graphs in pygal. I think it's showing much better graphs in much
+better form than matplotlib, the file extension is also different so this must
+be an important case. I read a lot of stuff about python, data science and
+programming. It's part of immersion inside the topic and this field of science.
+I am not progressing so much with the book though.
+
+18.03.19
+I started the day with reading a lot about python. For me it's more about the
+overall information and concepts than projects. I have to change that soon. i
+am ready to do projects right now and it's necessary for my improvement to do
+them. That's the best way to learn. Ideas are little though and I am afraid I
+will fall back into copy/paste style of doing things.
+
+19.03.19
+I finished doing visualisations in matplotlib. I am thinking intensively about
+the project that I want to do. I even started plotting some data connected to
+it. The population grows in a very linear way that I'm very surprised in. The
+project is on my mind anyway. Ideal way would be to connect it to a web
+application to let others use it in the web browsers. Doing that only after
+downloading files is stupid. I am reading a lot about python related stuff but
+I must say that the progress feels slower. I hope it's not, that's why I am
+doing this journal, to see how it goes in the future. Programming is definately
+a very interesting way to create stuff and manage things. It is for me. It
+feels like it.
+
+20.03.19
+
+22.03.19
+I made a more detailed plan to my project, now I just need to start doing it.
+It is much bigger than I suspected and I need to get rid of the thinking that I
+need to know everything before I start. It would be impossible to finish it and
+to even start it in the first place.

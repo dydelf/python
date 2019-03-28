@@ -4,6 +4,11 @@ processing it and saving as a file ready for next steps
 """
 
 import json
+#import matplotlib
+#matplotlib.use('tkagg')
+#from matplotlib import pyplot as plt
+#import seaborn as sns
+#import pandas as pd
 import pygal
 
 filename = '/home/pyxis/python/project_population/data/population_data.json'
@@ -29,30 +34,46 @@ w_pop = {}
 #extracting the data
 for pop_dict in pop_data:
     if pop_dict['Country Name'] == 'Arab World':
-        arab_year = pop_dict['Year']
+        arab_year = int(float(pop_dict['Year']))
         arab_population = int(float(pop_dict['Value']))
         arab_pop[arab_year] = arab_population
 for pop_dict in pop_data:
     if pop_dict['Country Name'] == 'European Union':
-        euro_year = pop_dict['Year']
+        euro_year = int(float(pop_dict['Year']))
         euro_population = int(float(pop_dict['Value']))
         euro_pop[euro_year] = euro_population
 for pop_dict in pop_data:
     if pop_dict['Country Name'] == 'North America':
-        na_year = pop_dict['Year']
+        na_year = int(float(pop_dict['Year']))
         na_population = int(float(pop_dict['Value']))
         na_pop[na_year] = na_population
 for pop_dict in pop_data:
     if pop_dict['Country Name'] == 'South Asia':
-        se_year = pop_dict['Year']
+        se_year = int(float(pop_dict['Year']))
         se_population = int(float(pop_dict['Value']))
         se_pop[se_year] = se_population
 for pop_dict in pop_data:
     if pop_dict['Country Name'] == 'World':
-        w_year = pop_dict['Year']
+        w_year = int(float(pop_dict['Year']))
         w_population = int(float(pop_dict['Value']))
         w_pop[w_year] = w_population
 
 
-print(arab_pop)
-print(w_pop)
+visual = pygal.Line()
+
+visual.title = "Population during last years in regions of the World"
+visual.x_title = "Year"
+visual.y_title = "Population"
+visual.x_labels = [i for i in range(1960, 2010)]
+visual.add('Arab Countries', arab_pop)
+visual.add('Euro Countries', euro_pop)
+visual.add('North America', na_pop)
+visual.add('South East Asia', se_pop)
+
+visual.render_to_file('population_visual.svg')
+
+#df_arab = pd.DataFrame(arab_pop, index=[0])
+#sns.set_style("darkgrid")
+#arab_visual = sns.lineplot(data=df_arab, dashes=False)
+#plt.show()
+#

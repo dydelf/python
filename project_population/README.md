@@ -5,6 +5,7 @@ time. New functionalities will be added in the future.
 
 
 Idea:
+
 Constantly increasing population in the world is creating more and more
 problems globally leading to unsustainable situation on our planet. Is this
 growth constant or is it going to stop at some point in time?
@@ -27,6 +28,7 @@ Functions:
 
 
 Assumptions:
+
 Fertility rate is correlated to GDP and differs for each country. Over time it
 slows down and even drops below 2.0 in some cases. At some point assuming that
 all countries are going to grow economically at the rate countable using 
@@ -46,6 +48,7 @@ more accurate prediction.
 
 
 Logic:
+
 GDP / up - fertility rate \ down - population \ down
 years / up - gradient population \ down
 with time population striving to one number with little variance

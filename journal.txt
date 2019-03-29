@@ -134,3 +134,21 @@ I made a more detailed plan to my project, now I just need to start doing it.
 It is much bigger than I suspected and I need to get rid of the thinking that I
 need to know everything before I start. It would be impossible to finish it and
 to even start it in the first place.
+
+29.03.19
+Standard break in updating something. It was not a unproductive time though. I
+finished some functionalities in my project population. Not a very big ones but
+now I am able to visualize different regions on the world. I know how tu use
+some visualisation libraries and working with data is easier. The thing I was
+lacking is the structure of the project. Because of it I started doing alien
+invasion project where I can learn those things. I finished 1/3 chapters of it
+and now I am much more confident about how to structure bigger program. How to
+divide it into the files and how to properly make it function. Maybe I will
+make a small game later. The Game of Life. That would be cool. I'm not sure if
+any of this will be good for the portfolio but I am learning a lot and this is
+what matters. I am having a lot of fun with it seeing how I progress. This
+means that I still have plenty to learn and practise. I could be doing a lot
+more but spending few hours everyday seems sufficient. i could easily take a
+small job. Teaching english would be perfect but I fucked up a little with
+that. That's a pity. My motivation is higher than ever and this is what
+matters. 

@@ -11,7 +11,7 @@ import json
 #import pandas as pd
 import pygal
 
-filename = '/home/pyxis/python/project_population/data/population_data.json'
+filename = 'data/population_data.json'
 with open(filename) as f:
     pop_data = json.load(f)
 
@@ -86,10 +86,9 @@ visual.add('East Asia & Pacific', se_pop)
 visual.add('Latin America & Caribbean', la_pop)
 visual.add('Sub-Saharan Africa', a_pop)
 
-visual.render_to_file('population_visual.svg')
+visual.render_to_file('population.svg')
 
 #df_arab = pd.DataFrame(arab_pop, index=[0])
 #sns.set_style("darkgrid")
 #arab_visual = sns.lineplot(data=df_arab, dashes=False)
 #plt.show()
-#

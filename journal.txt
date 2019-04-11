@@ -152,3 +152,31 @@ more but spending few hours everyday seems sufficient. i could easily take a
 small job. Teaching english would be perfect but I fucked up a little with
 that. That's a pity. My motivation is higher than ever and this is what
 matters. 
+
+~
+---------------------------- Modification -------------------------------------
+~
+
+Journal is a way to make my knowledge systematic, to review what I learned,
+discovered and to try to put it into my words to stabilise it in my memory.
+
+10.04.19
+Long time no see. I was working on the alien invasion project for a while but I
+forgot to update my journal. Although just rewriting from the book this was a
+challenging task. I learned so much. Now I know how to structurise the project
+on different files, how to write meaningful functions and classes and also how
+to refactor the code. This was challenging but maybe I just don't know yet how
+to do it efficiently in vim. Now when copying is easier and pasting also this
+might not be such an issue. Still the program I am mot familiar with is vim, I
+tried pycharm and it sucked. It's just the amount of time put into learning
+though. No more. The thing that was the most difficult for me was to put all
+the arguments correctly into the functions and classes. This was nightmare,
+most of the things didn't want to work because of this issue. It's just the
+case of creating a proper mind map of every functions and what it connects to.
+Maybe because I was mostly rewriting and learning from the book this was such a
+problem. Learning pygame was also allright. 
+To create a game like this we need basic functions from pygame like creating a
+window, putting elements into this window, making the move. All of it should be
+in separate functions and the main file should be clear to preserve the logic.
+Game functions should be in separate file, all classes also and settings too
+for easier modification in the future. All of the work seems so easy now.

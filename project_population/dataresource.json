@@ -1,0 +1,54 @@
+{
+    "bytes": 429435,
+    "datahub": {
+        "derivedFrom": [
+            "data"
+        ],
+        "type": "derived/csv"
+    },
+    "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+    },
+    "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/e201f62648bdaaf0aebaa72ba5ae8f03.csv",
+    "encoding": "utf-8",
+    "format": "csv",
+    "hash": "38721488df194e56b89bb6106cce6fbd",
+    "mediatype": "text/csv",
+    "name": "data_csv",
+    "path": "https://pkgstore.datahub.io/world-bank/sp.dyn.tfrt.in/data_csv/data/38721488df194e56b89bb6106cce6fbd/data_csv.csv",
+    "pathType": "local",
+    "profile": "data-resource",
+    "rowcount": 13770,
+    "schema": {
+        "fields": [
+            {
+                "description": "Country or Region name",
+                "name": "Country Name",
+                "type": "string"
+            },
+            {
+                "description": "ISO 3-digit ISO code extended to include regional codes e.g. EUR, ARB etc",
+                "name": "Country Code",
+                "type": "string"
+            },
+            {
+                "description": "Year",
+                "name": "Year",
+                "type": "year"
+            },
+            {
+                "decimalChar": ".",
+                "description": "Total fertility rate represents the number of children that would be born to a woman if she were to live to the end of her childbearing years and bear children in accordance with age-specific fertility rates of the specified year.",
+                "groupChar": "",
+                "name": "Value",
+                "type": "number"
+            }
+        ]
+    },
+    "signed": true,
+    "title": "Indicator data"
+}

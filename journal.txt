@@ -180,3 +180,18 @@ window, putting elements into this window, making the move. All of it should be
 in separate functions and the main file should be clear to preserve the logic.
 Game functions should be in separate file, all classes also and settings too
 for easier modification in the future. All of the work seems so easy now.
+
+24.04.19
+I have a big troubles in updating my journal about programming. I always forget
+to do that. Recently I was mainly setting up envirnment, downloading useful
+materials and reading a lot about all the relevent topics.
+Being more specific I reviewed git system and how to use it properly. Merging
+is still a mystery to me but that's because I don't work with anyone yet. I
+also didn't destroy anything yet but I know how it all works with the commmits.
+Another thing is that I started learning testing, unit testing. That will be
+useful during my work and later development. I intend to write tests for my old
+game. The problem i that there is so may projects that I could do and finish
+but I am starting another ones and never finishing the ones I started. That
+would be a disaster in real life but in programming this can be actually good
+because I am learning more and more of new stuff. I just may not be so
+proficient at it because of actually not finishing any of work.

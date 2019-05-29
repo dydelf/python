@@ -3,6 +3,9 @@ Block websites during your worktime with this simple script.
 Needs to have a valid hosts path updated and opened as sudo.
 """
 
+#I would like to know if the format of a docstring is apropriate for this little program
+#Also can you tell me if the comments are ok in a simple app like that?
+
 import time
 from datetime import datetime as dt
 

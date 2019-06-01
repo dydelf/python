@@ -117,6 +117,10 @@ b6.grid(row=7, column=3)
 b7 = Button(window, text="Clear", width=10, command=clear_command)
 b7.grid(row=2, column=2)
 
+#Scrollbar doesn't work on mac os, visible only small unusable bar in a weird location
+#Please check on windows
+#If you know solution to the problem, please share
+
 #Scrollbar
 s1 = Scrollbar(window)
 s1.grid(row=3, column=2, rowspan=5)

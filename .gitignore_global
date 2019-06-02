@@ -1,0 +1,118 @@
+# If you choose this option, make sure to remove `_long` at the end of the file name so that the file is saved as `.gitignore_global`
+####################################################
+# Global .gitignore Flle
+# Reference:  http://help.github.com/ignore-files/
+# Save this in a file as: ~/.gitignore_global
+#####################
+
+# Maven #
+#########
+target/
+
+# Eclipse #  
+###########
+*.classpath
+.settings/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Node.js #
+###########
+node_modules
+/dist
+.npm-debug.log
+/theme
+/.idea
+
+# Testing #
+###########
+coverage/
+
+# Unit Test / Coverage Reports #
+################################
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+venv/
+.python-version
+
+# Byte-compiled / optimized / DLL files #
+#########################################
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging #
+############################
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller #
+###############
+*.manifest
+*.spec
+
+# Installer logs #
+##################
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Translations #
+################
+*.mo
+*.pot
+
+# Ipython Notebook #
+####################
+.ipynb_checkpoints

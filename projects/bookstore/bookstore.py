@@ -13,8 +13,10 @@ Funcionalities:
 """
 
 from tkinter import *
-import backend
+from backend import Database
 
+
+database = Database("database.db")
 
 def get_selected_row(event):
     try:
@@ -36,24 +38,24 @@ def get_selected_row(event):
 
 def view_command():
     list1.delete(0, END)
-    for row in backend.view_all():
+    for row in database.view_all():
         list1.insert(END, row)
 
 def search_command():
     list1.delete(0, END)
-    for row in backend.search_entry(title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get()):
+    for row in database.search_entry(title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get()):
         list1.insert(END, row)
 
 def add_command():
-    backend.add_entry(title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get())
+    database.add_entry(title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get())
     list1.delete(0, END)
     list1.insert(END, (title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get()))
 
 def delete_command():
-    backend.delete(selected_tuple[0])
+    database.delete(selected_tuple[0])
 
 def update_command():
-    backend.update(selected_tuple[0], title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get())
+    database.update(selected_tuple[0], title_entry.get(), year_entry.get(), author_entry.get(), isbn_entry.get())
 
 def clear_command():
     e1.delete(0, END)

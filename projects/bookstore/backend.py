@@ -6,7 +6,7 @@ import sqlite3
 
 
 class Database():
-
+    """Class contains methods accessing the database."""
 
     def __init__(self, db):
         self.connection = sqlite3.connect(db)

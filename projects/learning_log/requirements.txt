@@ -1,0 +1,12 @@
+Package         Version
+--------------- -------
+Django          2.2.2  
+pep8            1.7.1  
+pip             19.1.1 
+pyparsing       2.4.0  
+python-dateutil 2.8.0  
+pytz            2019.1 
+setuptools      41.0.1 
+six             1.12.0 
+sqlparse        0.3.0  
+wheel           0.33.4 

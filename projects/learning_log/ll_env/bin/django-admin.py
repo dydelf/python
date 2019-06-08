@@ -1,4 +1,4 @@
-#!/Users/pyxis/Documents/python/learning_log/ll_env/bin/python3
+#!/Users/pyxis/Documents/python/projects/learning_log/ll_env/bin/python3.7
 from django.core import management
 
 if __name__ == "__main__":

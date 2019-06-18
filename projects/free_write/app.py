@@ -15,7 +15,7 @@ More functionalities will be added.
 
 from flask import (Flask, render_template, flash, redirect, url_for, session,
                    logging, request)
-from flask_mysqldb import MySQLdb
+from flask_mysqldb import MySQL
 from wtforms import (Form, StringField, TextAreaField, PasswordField,
                      validators)
 from passlib.hash import sha256_crypt
@@ -24,6 +24,15 @@ from data import articles
 
 
 app = Flask(__name__)
+
+# Config MySQL
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'pyxis'
+app.config['MYSQL_PASSWORD'] = 'pyxispyxis'
+app.config['MYSQL_DB'] = 'freewrite'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# init MySQL
+mysql = MySQL(app)
 
 articles = articles()
 
@@ -63,9 +72,30 @@ class RegisterForm(Form):
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        return
+        name = form.name.data
+        username = form.username.data
+        email = form.email.data
+        password = sha256_crypt.encrypt(str(form.password.data))
+
+        # Create cursor
+        cur = mysql.connection.cursor()
+
+        # Execute query
+
+        cur.execute("INSERT INTO users(name, username, email, password) VALUES(%s, %s, %s, %s)", (name, username, email, password))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+        # Close connection
+        cur.close()
+
+        flash('You are now registered and can log in.', 'success')
+
+        return redirect(url_for('index'))
     return render_template('register.html', form=form)
 
 
 if __name__ == '__main__':
+    app.secret_key = 'secret123'
     app.run(debug=True)

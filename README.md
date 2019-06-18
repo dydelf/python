@@ -1,3 +1,3 @@
 #python
 
-This is a training repository for python programs. It is also a big opportunity to contribute for other people.
+This is a training repository for python programs. It works as a portfolio until the proper one will be build.

@@ -19,6 +19,7 @@ from flask_mysqldb import MySQL
 from wtforms import (Form, StringField, TextAreaField, PasswordField,
                      validators)
 from passlib.hash import sha256_crypt
+from functools import wraps
 
 from data import articles
 
@@ -142,8 +143,21 @@ def login():
     return render_template('login.html')
 
 
+# Check if user logged in
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('Unauthorized, please log in!', 'danger')
+            return redirect(url_for('login'))
+    return wrap
+
+
 # Logout
 @app.route('/logout')
+@is_logged_in
 def logout():
     session.clear()
     flash('You are now logged out', 'success')
@@ -151,8 +165,60 @@ def logout():
 
 
 @app.route('/dashboard')
+@is_logged_in
 def dashboard():
-    return render_template('dashboard.html')
+    # Create cursor
+    cur = mysql.connection.cursor()
+
+    # Get articles
+    result = cur.execute("SELECT * FROM logs")
+
+    logs = cur.fetchall()
+
+    if result > 0:
+        return render_template('dashboard.html', logs=logs)
+    else:
+        msg = 'No articles found'
+        return render_template('dashboard.html', msg=msg)
+
+
+class LogForm(Form):
+    title = StringField('Title', [validators.Length(min=0, max=200)])
+    body = TextAreaField('Body', [validators.Length(min=30)])
+    tags = StringField('Tags', [validators.Length(min=0, max=255)])
+
+# Add log
+@app.route('/add_log', methods=['GET', 'POST'])
+@is_logged_in
+def add_log():
+    form = LogForm(request.form)
+    if request.method == 'POST' and form.validate():
+        title = form.title.data
+        body = form.body.data
+        tags = form.tags.data
+
+        # Create cursor
+        cur = mysql.connection.cursor()
+
+        # Get the name of the user
+        # ERROR!!!!!!!!!!!!!
+        author = session['username']
+        name = cur.execute("SELECT name FROM users WHERE username = %s", (author,))
+
+        # Execute
+        cur.execute("INSERT INTO logs(username, title, author, body, tags) VALUES(%s, %s, %s, %s, %s)", (session['username'], title, name, body, tags))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+        # Close connection
+        cur.close()
+
+        flash('Log created', 'success')
+
+        return redirect(url_for('dashboard'))
+
+    return render_template('add_log.html', form=form)
 
 
 if __name__ == '__main__':

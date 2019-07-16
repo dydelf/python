@@ -4,6 +4,7 @@ Finding the largest prime factor of a given number
 """
 
 import timing
+from math import sqrt
 
 
 def get_dividers(number):
@@ -28,6 +29,18 @@ def get_primals(numbers):
     return primals
 
 
-dividers = [get_dividers(600851475143)]
-print(get_dividers(600851475143))
+#dividers = [get_dividers(600851475143)]
+#print(get_dividers(600851475143))
 
+def primefactors(n):
+    '''lists prime factors, from greatest to smallest''' 
+    i = 2
+    while i<=sqrt(n):
+        if n%i==0:
+            l = primefactors(n/i)
+            l.append(i)
+            return l
+        i+=1
+    return [n] 
+
+print(primefactors(600851475143))

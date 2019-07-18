@@ -19,8 +19,13 @@
             <td>{{log.title}}</td>
             <td>{{log.author}}</td>
             <td>{{log.create_date}}</td>
-            <td><a href="edit_article/{{logs.id}}" class="btn btn-default pull-right">Edit</a></td>
-            <td><a href="#" class="btn btn-danger">Delete</a></td>
+            <td><a href="edit_log/{{log.id}}" class="btn btn-default pull-right">Edit</a></td>
+            <td>
+                <form action="{{url_for('delete_log', id=log.id)}}", method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
         </tr>
     {% endfor %}
 {% endblock %}

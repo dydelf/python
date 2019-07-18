@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <h1>{{id}}</h1>
+    <h1>{{log.title}}</h1>
+    <small>Written by {{log.author}} on {{log.create_date}}</small>
+    <hr>
+    <div>
+        {{log.body | safe}}
+    </div>
 {% endblock %}

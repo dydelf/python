@@ -21,7 +21,7 @@ from wtforms import (Form, StringField, TextAreaField, PasswordField,
 from passlib.hash import sha256_crypt
 from functools import wraps
 
-from data import articles
+#from data import articles
 
 
 app = Flask(__name__)
@@ -36,7 +36,19 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MySQL
 mysql = MySQL(app)
 
-articles = articles()
+#articles = articles()
+
+
+# Check if user logged in
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('Unauthorized, please log in!', 'danger')
+            return redirect(url_for('login'))
+    return wrap
 
 
 @app.route('/')
@@ -49,14 +61,42 @@ def about():
     return render_template('about.html')
 
 
+#ERROR fetching all articles instead of the article written by one author
+#Logs
 @app.route('/logs')
+@is_logged_in
 def logs():
-    return render_template('logs.html', articles=articles)
+    #Create cursor
+    cur = mysql.connection.cursor()
+    
+    #Get logs
+    result = cur.execute("SELECT * FROM logs")
+    
+    # result = cur.execute("SELECT * FROM articles WHERE author = '" + session['username'] + "'")
+    
+    logs = cur.fetchall()
+    
+    if result > 0:
+        return render_template('logs.html', logs=logs)
+    else:
+        msg = 'No logs found'
+        return render_template('logs.html', msg=msg)
+    cur.close()
 
 
+#Single log
 @app.route('/log/<string:id>/')
+@is_logged_in
 def log(id):
-    return render_template('log.html', id=id)
+    #Create cursor
+    cur = mysql.connection.cursor()
+    
+    #Get article
+    result = cur.execute("SELECT * FROM logs WHERE id = %s", [id])
+    
+    log = cur.fetchone()
+    
+    return render_template('log.html', log=log)
 
 
 # User registration
@@ -143,18 +183,6 @@ def login():
     return render_template('login.html')
 
 
-# Check if user logged in
-def is_logged_in(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            flash('Unauthorized, please log in!', 'danger')
-            return redirect(url_for('login'))
-    return wrap
-
-
 # Logout
 @app.route('/logout')
 @is_logged_in
@@ -202,11 +230,13 @@ def add_log():
 
         # Get the name of the user
         # ERROR!!!!!!!!!!!!!
+        # Couldnt fix it, cant post author into the database
+        #Cant get author from the database, ! author = 1
         author = session['username']
-        name = cur.execute("SELECT name FROM users WHERE username = %s", (author,))
+        name = cur.execute("SELECT name FROM users WHERE username=%s", (author,))
 
         # Execute
-        cur.execute("INSERT INTO logs(username, title, author, body, tags) VALUES(%s, %s, %s, %s, %s)", (session['username'], title, name, body, tags))
+        cur.execute("INSERT INTO logs(username, title, author, body, tags) VALUES(%s, %s, %s, %s, %s)", (author, title, name, body, tags))
 
         # Commit to DB
         mysql.connection.commit()
@@ -219,6 +249,78 @@ def add_log():
         return redirect(url_for('dashboard'))
 
     return render_template('add_log.html', form=form)
+
+
+# Edit log
+@app.route('/edit_log/<string:id>', methods=['GET', 'POST'])
+@is_logged_in
+def edit_log(id):
+    #Create cursor
+    cur = mysql.connection.cursor()
+    
+    #Get log by id
+    result = cur.execute("SELECT * FROM logs WHERE id=%s", [id])
+    
+    log = cur.fetchone()
+    
+    #Get form
+    form = LogForm(request.form)
+    
+    #Populate log form fields
+    form.title.data = log['title']
+    form.body.data = log['body']
+    form.tags.data = log['tags']
+    
+    if request.method == 'POST' and form.validate():
+        title = request.form['title']
+        body = request.form['body']
+        tags = request.form['tags']
+
+        # Create cursor
+        cur = mysql.connection.cursor()
+        app.logger.info(title)
+
+        # Get the name of the user
+        # ERROR!!!!!!!!!!!!!
+        # Couldnt fix it, cant post author into the database
+        #author = session['username']
+        #name = cur.execute("SELECT name FROM users WHERE username = %s", (author,))
+
+        # Execute
+        cur.execute("UPDATE logs SET title=%s, body=%s, tags=%s WHERE id=%s", (title, body, tags, id))
+
+        # Commit to DB
+        mysql.connection.commit()
+
+        # Close connection
+        cur.close()
+
+        flash('Log updated', 'success')
+
+        return redirect(url_for('dashboard'))
+
+    return render_template('edit_log.html', form=form)
+
+
+# Delete log
+@app.route('/delete_log/<string:id>', methods=['POST'])
+@is_logged_in
+def delete_log(id):
+    #Create cursor
+    cur = mysql.connection.cursor()
+    
+    #Execute
+    cur.execute("DELETE FROM logs WHERE id = %s", [id])
+    
+    #Commit to db
+    mysql.connection.commit()
+    
+    #Close connection
+    cur.close()
+    
+    flash('Log Deleted', 'success')
+    
+    return redirect(url_for('dashboard'))
 
 
 if __name__ == '__main__':
